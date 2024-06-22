@@ -1,0 +1,53 @@
+.container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    background-color: beige;
+}
+
+.item {
+    font-weight: 800;
+    color: #808080;
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    transition: color 0.3s ease;
+
+    img {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    &:after {
+        content: '';
+        position: absolute;
+        background-color: var(--primary);
+        height: 3px;
+        width: 0;
+        left: 0;
+        bottom: -8px;
+        transition: all 0.5s ease;
+    }
+
+    &:hover {
+        cursor: pointer;
+        color: var(--primary);
+
+        &::after {
+            width: 100%;
+        }
+    }
+
+    &:active {
+        color: var(--primary);
+
+        &::after {
+            width: 100%;
+        }
+    }
+}
