@@ -1,0 +1,28 @@
+.container {
+    padding: 0 10%;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.list-view {
+    grid-column: span 2;
+    grid-row: 1;
+}
+
+.detail {
+    grid-column: span 1;
+    grid-row: 1;
+}
+
+.wrapper {
+    width: 100%;
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 5px 5px 5px rgb(0 0 0 / 12%);
+    border-radius: 10px;
+    padding: 5px;
+}

@@ -1,0 +1,43 @@
+.wrapper {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 40px;
+    padding: 5px 12px;
+    border-radius: 4px;
+    font-size: 1.2rem;
+    font-weight: 600;
+    cursor: pointer;
+    background-color: var(--white);
+    border: 1px solid transparent;
+    user-select: none;
+
+    + .wrapper {
+        margin-left: 5px;
+        margin-top: 5px;
+    }
+
+    &.disabled {
+        pointer-events: none;
+        opacity: 0.5;
+    }
+
+    &:hover {
+        color: var(--primary);
+    }
+}
+
+.icon {
+    display: inline-block;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.asc {
+    margin-left: 5px;
+}
+
+.reset {
+    background-color: #babdcd;
+    color: #fff;
+}

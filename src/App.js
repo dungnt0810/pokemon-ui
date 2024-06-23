@@ -1,17 +1,9 @@
-import Menu from './components/Menu';
-import SearchBar from './components/SearchBar';
-import Wrapper from './components/Wrapper';
+import PageLayout from './components/PageLayout';
 
 function App() {
     return (
         <div className="App">
-            <Wrapper>
-                <Menu />
-            </Wrapper>
-            <Wrapper>
-                <SearchBar />
-            </Wrapper>
-            <h1>React App</h1>
+            <PageLayout />
         </div>
     );
 }
