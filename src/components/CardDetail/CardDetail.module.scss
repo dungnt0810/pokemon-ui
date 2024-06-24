@@ -1,0 +1,67 @@
+.container {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff;
+    margin: 20px 0;
+    box-shadow: 1rem 1rem 1rem rgb(0 0 0 / 12%);
+    border-radius: 1rem;
+    padding: 1rem;
+    & img {
+        width: 80%;
+    }
+}
+
+.name {
+    font-size: 1.8rem;
+    font-weight: 600;
+    text-transform: capitalize;
+}
+
+.grid-layout {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    align-items: center;
+    justify-items: center;
+}
+
+.abilities,
+.types {
+    grid-column: span 6;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.abilities-title,
+.stats-title,
+.types-title {
+    grid-column: span 6;
+    font-size: 1.6rem;
+    font-weight: 600;
+    text-transform: uppercase;
+}
+
+.height,
+.weight {
+    grid-column: span 3;
+}
+
+.stats {
+    grid-column: span 6;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 5px;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    font-weight: 500;
+}

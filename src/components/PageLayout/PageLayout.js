@@ -5,6 +5,7 @@ import Menu from '~/components/Menu';
 import SearchBar from '~/components/SearchBar';
 import ActionMenu from '../ActionMenu';
 import Card from '../Card';
+import CardDetail from '../CardDetail';
 
 const cx = classNames.bind(styles);
 
@@ -27,13 +28,14 @@ function PageLayout() {
                         <Card pokeId={4} />
                         <Card pokeId={5} />
                         <Card pokeId={6} />
+                        <Card pokeId={7} />
+                        <Card pokeId={8} />
+                        <Card pokeId={9} />
+                        <Card pokeId={10} />
                     </div>
                 </div>
                 <div className={cx('detail')}>
-                    <div className={cx('wrapper')}>
-                        <SearchBar />
-                        {/* Card detail view */}
-                    </div>
+                    <CardDetail pokeId={1} />
                 </div>
             </div>
         </div>
