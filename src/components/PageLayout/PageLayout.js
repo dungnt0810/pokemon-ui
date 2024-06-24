@@ -4,6 +4,7 @@ import styles from './PageLayout.module.scss';
 import Menu from '~/components/Menu';
 import SearchBar from '~/components/SearchBar';
 import ActionMenu from '../ActionMenu';
+import Card from '../Card';
 
 const cx = classNames.bind(styles);
 
@@ -19,7 +20,14 @@ function PageLayout() {
                         <SearchBar />
                     </div>
                     <ActionMenu />
-                    <div className={cx('pokemon-list')}>{/* Card grid view */}</div>
+                    <div className={cx('pokemon-list')}>
+                        <Card pokeId={1} />
+                        <Card pokeId={2} />
+                        <Card pokeId={3} />
+                        <Card pokeId={4} />
+                        <Card pokeId={5} />
+                        <Card pokeId={6} />
+                    </div>
                 </div>
                 <div className={cx('detail')}>
                     <div className={cx('wrapper')}>
