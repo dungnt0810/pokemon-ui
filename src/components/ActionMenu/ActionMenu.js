@@ -44,7 +44,7 @@ const MAX_PKM = 1302;
 
 function ActionMenu({ onChangeFrom, onChangeTo, updateValues }) {
     const [from, setFrom] = useState(1);
-    const [to, setTo] = useState(10);
+    const [to, setTo] = useState(6);
 
     const handleOnClick = () => {
         const fromValue = document.getElementById('from').value;

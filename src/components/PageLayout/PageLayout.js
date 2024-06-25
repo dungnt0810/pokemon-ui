@@ -11,16 +11,15 @@ import { useState } from 'react';
 const cx = classNames.bind(styles);
 
 function PageLayout() {
-    const [values, setValues] = useState({ from: 1, to: 10 });
-    const [searchQuery, setSearchQuery] = useState('');
+    const [values, setValues] = useState({ from: 1, to: 6 });
+    const [selectedPokeId, setSelectedPokeId] = useState(null);
 
     const updateValues = (from, to) => {
         setValues({ from, to });
     };
 
-    const handleSearchClick = (query) => {
-        setSearchQuery(query);
-        console.log('Search query:', query);
+    const handleCardClick = (id) => {
+        setSelectedPokeId(id);
     };
 
     return (
@@ -40,13 +39,11 @@ function PageLayout() {
                             { length: values.to - values.from + 1 },
                             (_, index) => parseInt(index) + parseInt(values.from),
                         ).map((index) => (
-                            <Card key={index} pokeId={index} />
+                            <Card key={index} pokeId={index} onClick={() => handleCardClick(index)} />
                         ))}
                     </div>
                 </div>
-                <div className={cx('detail')}>
-                    <CardDetail pokeId={1} />
-                </div>
+                <div className={cx('detail')}>{selectedPokeId && <CardDetail pokeId={selectedPokeId} />}</div>
             </div>
         </div>
     );
