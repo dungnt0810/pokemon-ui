@@ -3,12 +3,14 @@ import styles from './SearchBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
 import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
-import { useState } from 'react';
+import { useRef, useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function SearchBar() {
     const [searchQuery, setSearchQuery] = useState('');
+
+    const inputRef = useRef();
 
     const handleSearchChange = (e) => {
         setSearchQuery(e.target.value);
@@ -27,12 +29,22 @@ function SearchBar() {
                     placeholder="Search pokemon"
                     spellCheck="false"
                     value={searchQuery}
+                    ref={inputRef}
                     onChange={handleSearchChange}
                 />
-                <button className={cx('clear-btn')}>
-                    <FontAwesomeIcon icon={faCircleXmark} />
-                </button>
-                <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
+                {!!searchQuery && (
+                    <button className={cx('clear-btn')}>
+                        <FontAwesomeIcon
+                            icon={faCircleXmark}
+                            onClick={() => {
+                                inputRef.current.focus();
+                                setSearchQuery('');
+                            }}
+                        />
+                    </button>
+                )}
+
+                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
 
                 <button className={cx('search-btn')} onClick={handleSearchClick}>
                     <FontAwesomeIcon icon={faSearch} />
