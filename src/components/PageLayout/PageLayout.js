@@ -6,10 +6,23 @@ import SearchBar from '~/components/SearchBar';
 import ActionMenu from '../ActionMenu';
 import Card from '../Card';
 import CardDetail from '../CardDetail';
+import { useState } from 'react';
 
 const cx = classNames.bind(styles);
 
 function PageLayout() {
+    const [values, setValues] = useState({ from: 1, to: 10 });
+    const [searchQuery, setSearchQuery] = useState('');
+
+    const updateValues = (from, to) => {
+        setValues({ from, to });
+    };
+
+    const handleSearchClick = (query) => {
+        setSearchQuery(query);
+        console.log('Search query:', query);
+    };
+
     return (
         <div className={cx('container')}>
             <div className={cx('wrapper')}>
@@ -20,18 +33,15 @@ function PageLayout() {
                     <div className={cx('wrapper')}>
                         <SearchBar />
                     </div>
-                    <ActionMenu />
+                    <ActionMenu updateValues={updateValues} />
+
                     <div className={cx('pokemon-list')}>
-                        <Card pokeId={1} />
-                        <Card pokeId={2} />
-                        <Card pokeId={3} />
-                        <Card pokeId={4} />
-                        <Card pokeId={5} />
-                        <Card pokeId={6} />
-                        <Card pokeId={7} />
-                        <Card pokeId={8} />
-                        <Card pokeId={9} />
-                        <Card pokeId={10} />
+                        {Array.from(
+                            { length: values.to - values.from + 1 },
+                            (_, index) => parseInt(index) + parseInt(values.from),
+                        ).map((index) => (
+                            <Card key={index} pokeId={index} />
+                        ))}
                     </div>
                 </div>
                 <div className={cx('detail')}>

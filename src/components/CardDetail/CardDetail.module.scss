@@ -28,7 +28,7 @@
     justify-items: center;
 }
 
-.abilities,
+.row,
 .types {
     grid-column: span 6;
     display: flex;
@@ -47,7 +47,7 @@
 
 .height,
 .weight {
-    grid-column: span 3;
+    margin: 0 5px;
 }
 
 .stats {

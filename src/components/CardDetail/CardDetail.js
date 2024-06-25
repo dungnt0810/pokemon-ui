@@ -24,7 +24,6 @@ function Card({ pokeId }) {
             .get('https://pokeapi.co/api/v2/pokemon/' + pokeId)
             .then(function (response) {
                 setPoke(response.data);
-                console.log(response.data);
             })
             .catch(function (error) {
                 console.log(error);
@@ -45,13 +44,21 @@ function Card({ pokeId }) {
             </div>
             <div className={cx('grid-layout')}>
                 <div className={cx('abilities-title')}>Abilities</div>
-                <div className={cx('abilities')}>
+                <div className={cx('row')}>
                     {poke.abilities.map((item, index) => (
-                        <DetailWrapper data={item.ability.name} key={index} />
+                        <DetailWrapper outline hidden={item.is_hidden} data={item.ability.name} key={index} />
                     ))}
                 </div>
-                <div className={cx('height')}>Height: {poke.height}</div>
-                <div className={cx('weight')}>Weight: {poke.weight}</div>
+
+                <div className={cx('row')}>
+                    <div className={cx('height')}>
+                        Height <DetailWrapper primary data={poke.height} />
+                    </div>
+                    <div className={cx('weight')}>
+                        Weight <DetailWrapper primary data={poke.height} />
+                    </div>
+                </div>
+
                 <div className={cx('stats-title')}>Stats</div>
                 <div className={cx('stats')}>
                     {poke.stats.map((item, index) => (

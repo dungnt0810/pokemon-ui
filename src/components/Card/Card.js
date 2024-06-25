@@ -7,21 +7,23 @@ import { useEffect, useState } from 'react';
 const cx = classNames.bind(styles);
 function Card({ pokeId }) {
     const [poke, setPoke] = useState(null);
+    const url = 'https://pokeapi.co/api/v2/pokemon/' + pokeId;
 
     useEffect(() => {
         // fetch data
         axios
-            .get('https://pokeapi.co/api/v2/pokemon/' + pokeId)
+            .get(url)
             .then(function (response) {
                 setPoke(response.data);
-                console.log(response.data);
             })
             .catch(function (error) {
                 console.log(error);
             });
-    }, [pokeId]);
+    }, []);
 
-    if (!poke) return null;
+    if (!poke) {
+        return null;
+    }
 
     return (
         <div className={cx('container')}>
