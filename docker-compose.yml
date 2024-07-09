@@ -1,0 +1,8 @@
+version: '2.0'
+services:
+    frontend:
+        image: 3618bba09014
+        build: .
+        container_name: frontend
+        ports:
+            - '3000:80' # map 80 in container => 3000 in local

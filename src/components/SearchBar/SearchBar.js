@@ -2,7 +2,7 @@ import classNames from 'classnames/bind';
 import styles from './SearchBar.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark } from '@fortawesome/free-regular-svg-icons';
-import { faSearch, faSpinner } from '@fortawesome/free-solid-svg-icons';
+import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useRef, useState } from 'react';
 
 const cx = classNames.bind(styles);

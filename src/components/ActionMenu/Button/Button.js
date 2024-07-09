@@ -1,7 +1,7 @@
 import classNames from 'classnames/bind';
 import styles from './Button.module.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import { faAngleDown } from '@fortawesome/free-solid-svg-icons';
 
 const cx = classNames.bind(styles);
 
@@ -20,7 +20,6 @@ function Button({ title, inputIcon, onClick, className, primary, small, large, .
             <FontAwesomeIcon className={cx('icon')} icon={inputIcon} />
             {title}
             {isResetBtn && <FontAwesomeIcon className={cx('asc')} icon={faAngleDown} />}
-            {/* {isResetBtn && <FontAwesomeIcon icon={faAngleUp} />} */}
         </button>
     );
 }
